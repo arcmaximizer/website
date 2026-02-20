@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --color-blue-full: #0000ff;
+  --color-red-full: #ff0000;
+}
+
+a {
+  @apply text-blue-full underline hover:text-blue-500 font-bold;
+}
