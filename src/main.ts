@@ -75,11 +75,9 @@ function setupRotatingCube() {
     "@",
     "X",
   ];
-  const CHARS_COUNT = ASCII_CHARS.length;
 
   let angleX = 0;
   let angleY = 0;
-  let angleZ = 0;
 
   // --- Definición del Cubo ---
   const CUBE_SCALE = 20;
@@ -120,43 +118,23 @@ function setupRotatingCube() {
   ];
 
   // --- Funciones de Transformación 3D ---
-  function rotateX(p, angle) {
+  function rotateX(p: number[], angle: number): number[] {
     const cos = Math.cos(angle);
     const sin = Math.sin(angle);
     return [p[0], p[1] * cos - p[2] * sin, p[1] * sin + p[2] * cos];
   }
 
-  function rotateY(p, angle) {
+  function rotateY(p: number[], angle: number): number[] {
     const cos = Math.cos(angle);
     const sin = Math.sin(angle);
     return [p[0] * cos + p[2] * sin, p[1], -p[0] * sin + p[2] * cos];
   }
 
-  function project(p) {
+  function project(p: number[]): number[] {
     const focalLength = 300;
     const z = p[2] + focalLength;
     const scale = focalLength / z;
     return [p[0] * scale, p[1] * scale * ASPECT_CORRECTION, p[2]];
-  }
-
-  function calculateFaceNormal(v1, v2, v3) {
-    const u = [v2[0] - v1[0], v2[1] - v1[1], v2[2] - v1[2]];
-    const v = [v3[0] - v1[0], v3[1] - v1[1], v3[2] - v1[2]];
-
-    const normalX = u[1] * v[2] - u[2] * v[1];
-    const normalY = u[2] * v[0] - u[0] * v[2];
-    const normalZ = u[0] * v[1] - u[1] * v[0];
-
-    const length = Math.sqrt(
-      normalX * normalX + normalY * normalY + normalZ * normalZ,
-    );
-    return length > 0
-      ? [normalX / length, normalY / length, normalZ / length]
-      : [0, 0, 0];
-  }
-
-  function dotProduct(v1, v2) {
-    return v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2];
   }
 
   // --- Bucle de Animación ---
@@ -171,8 +149,8 @@ function setupRotatingCube() {
     angleX += 0.02;
     angleY += 0.03;
 
-    const transformedVertices = [];
-    const projectedVertices = [];
+    const transformedVertices: number[][] = [];
+    const projectedVertices: number[][] = [];
 
     for (const v of vertices) {
       let rotatedV = rotateX(v, angleX);
@@ -193,36 +171,6 @@ function setupRotatingCube() {
 
     for (const { faceData, avgZ } of sortedFaces) {
       const faceIndices = faceData.indices;
-
-      const v1_3d = transformedVertices[faceIndices[0]];
-      const v2_3d = transformedVertices[faceIndices[1]];
-      const v3_3d = transformedVertices[faceIndices[2]];
-
-      const normal = calculateFaceNormal(v1_3d, v2_3d, v3_3d);
-
-      const faceCenter = [
-        (v1_3d[0] +
-          v2_3d[0] +
-          v3_3d[0] +
-          transformedVertices[faceIndices[3]][0]) /
-          4,
-        (v1_3d[1] +
-          v2_3d[1] +
-          v3_3d[1] +
-          transformedVertices[faceIndices[3]][1]) /
-          4,
-        (v1_3d[2] +
-          v2_3d[2] +
-          v3_3d[2] +
-          transformedVertices[faceIndices[3]][2]) /
-          4,
-      ];
-      const viewVector = [-faceCenter[0], -faceCenter[1], -faceCenter[2]];
-
-      // *** removido temporalmente ***
-      // if (dotProduct(normal, viewVector) < 0) {
-      //     continue;
-      // }
 
       // Seleccionar el rango de caracteres para esta cara
       const [minCharIndex, maxCharIndex] = faceData.colorRange;
@@ -310,11 +258,13 @@ function setupRotatingCube() {
       }
     }
 
-    container.textContent = frameBuffer.map((row) => row.join("")).join("\n");
+    if (container) {
+      container.textContent = frameBuffer.map((row) => row.join("")).join("\n");
+    }
     requestAnimationFrame(animate);
   }
 
-  function isPointInPolygon(p, polygon) {
+  function isPointInPolygon(p: {x: number, y: number}, polygon: {x: number, y: number}[]) {
     let inside = false;
     for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
       const xi = polygon[i].x;
