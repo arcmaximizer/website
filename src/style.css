@@ -5,6 +5,64 @@
   --color-red-full: #ff0000;
 }
 
-a {
-  @apply text-blue-full underline hover:text-blue-500 font-bold;
+@layer base {
+  a {
+    @apply text-blue-full underline hover:text-blue-500 font-bold;
+  }
+
+  a.internal {
+    @apply text-orange-600 hover:text-orange-400;
+  }
+
+  .items-internal a {
+    @apply text-orange-600 hover:text-orange-400;
+  }
+
+  h1 {
+    @apply font-bold text-2xl;
+  }
+
+  h2 {
+    @apply font-bold text-xl;
+  }
+
+  .card {
+    @apply border border-4 border-double bg-orange-50;
+  }
+
+  table {
+    @apply w-full border-collapse text-sm text-left;
+  }
+
+  caption {
+    @apply text-center text-sm mb-2;
+  }
+
+  th {
+    @apply border border-zinc-300 px-2 py-1 bg-orange-100 font-bold text-left align-bottom;
+  }
+
+  td {
+    @apply border border-zinc-300 px-2 py-1 align-top;
+  }
+
+  thead tr {
+    @apply border-b-2 border-zinc-400;
+  }
+
+  tbody {
+    @apply bg-white;
+  }
+
+  tbody tr:nth-child(even) {
+    @apply bg-gray-50;
+  }
+
+  .list-line > li {
+    @apply before:content-['├────_'] before:font-mono last:before:content-['└────_'];
+  }
+
+  .list-line > li:not(:last-child)::after {
+    @apply block content-['│'] font-mono;
+  }
 }

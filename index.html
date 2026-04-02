@@ -4,55 +4,156 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/arc.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/src/style.css" rel="stylesheet">
+    <link href="/src/style.css" rel="stylesheet" />
     <title>arcmaximizer</title>
     <meta property="og:title" content="arcmaximizer" />
-    <meta property="og:description" content="the personal website of arcmaximizer" />
+    <meta
+      property="og:description"
+      content="the personal website of arcmaximizer"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://arcmaximizer.com" />
   </head>
-  <body class="p-4 font-xl font-mono bg-white text-black">
-    <div class="max-w-screen-lg p-4 border border-4 border-double gap-4 bg-orange-50 mx-auto mt-4">
-      <img src="arc2.svg" class="mb-2 max-w-36 inline float-left mr-4"></img>
-      <div class="leading-tight space-y-2">
-        <h1 class="font-bold text-3xl">arcmaximizer</h1>
-        <p>aspirant realizing code and research. can achieve rhythmic cadence, always repeating capitals: arc's really cool.</p>
-        <p><span id="age">XX.XXXXXXXXXX</span> years old</p>
-        <div class="space-2">
-          <a href="https://x.com/arcmaximizer">twitter/X</a>
-          -
-          <a href="https://github.com/arcmaximizer">github</a>
-          -
-          <a href="https://arcmaximizer.substack.com">substack</a>
-        </div>
-        <div class="clear-both -mb-2"></div>
+  <body class="font-xl font-mono text-black">
+    <div class="flex flex-col mt-8 px-4 gap-4 max-w-screen-lg w-full mx-auto">
+      <div class="card px-4 py-2">
+        Home
+        <span class="float-right">
+          <b>Home</b> - <a href="/sitemap" class="internal">Sitemap</a>
+        </span>
       </div>
+      <div class="card p-4">
+        <img
+          src="arc2.svg"
+          class="max-w-36 inline float-left mr-4 mb-2 sm:mb-0"
+        />
+        <div class="leading-tight space-y-2">
+          <h1 class="font-bold text-3xl">arcmaximizer</h1>
+          <p>
+            aspirant realizing code and research. can achieve rhythmic cadence,
+            always repeating capitals: arc's really cool.
+          </p>
+          <p><span id="age">16.9501949012</span> years old</p>
+          <div class="space-2">
+            <a href="https://x.com/arcmaximizer">twitter/X</a>
+            -
+            <a href="https://github.com/arcmaximizer">github</a>
+            -
+            <a href="https://arcmaximizer.substack.com">substack</a>
+          </div>
+          <div class="clear-both -mb-2"></div>
+        </div>
+      </div>
+      <div class="card p-4 space-y-4">
+        <section>
+          <p>
+            I am a programmer who thinks about many things with a primary focus
+            on distributed technologies, user sovereignty and software freedom.
+            I believe that one day through the
+            <a href="https://ethereum.org">World Computer</a>
+            we will be able to bring about
+            <a href="https://x.com/arcmaximizer/status/2036903640166703467"
+              >the glorious cypherpunk future</a
+            >.
+            <a href="/reading" class="internal">&gt; Reading List</a>
+          </p>
+          <p class="mt-2">
+            I am currently building a personal server runtime called Arcanum,
+            taking inspiration from <a href="https://erlang.org">Erlang/OTP</a>,
+            <a href="https://urbit.org">Urbit</a>,
+            <a href="https://developers.cloudflare.com/durable-objects/"
+              >Cloudflare Durable Objects</a
+            >
+            and the philosophy of
+            <a href="https://ngnghm.github.io">Houyhnhnm Computing</a>.
+          </p>
+        </section>
+        <section>
+          <h1 class="inline-block">Technical</h1>
+          <div
+            class="flex flex-col gap-2 md:w-max md:float-right md:ml-4 mb-4 md:mb-0"
+          >
+            <table class="h-min inline-block">
+              <thead>
+                <tr>
+                  <th colspan="2">arcmaximizer.com</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Type</td>
+                  <td>Static</td>
+                </tr>
+                <tr>
+                  <td class="min-w-40">Languages</td>
+                  <td class="min-w-64 w-full">HTML, CSS, TypeScript</td>
+                </tr>
+                <tr>
+                  <td>CSS Framework</td>
+                  <td>Tailwind 4</td>
+                </tr>
+                <tr>
+                  <td>Registrar</td>
+                  <td>Unstoppable Domains</td>
+                </tr>
+                <tr>
+                  <td>Nameserver</td>
+                  <td>Cloudflare</td>
+                </tr>
+                <tr>
+                  <td>Webserver</td>
+                  <td>Cloudflare Workers</td>
+                </tr>
+                <tr>
+                  <td>Bundler</td>
+                  <td>Vite</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            My primary programming language for most tasks is TypeScript using
+            the
+            <a href="https://bun.sh">Bun</a> runtime, while aiming to learn
+            Rust, C and
+            <a href="https://docs.urbit.org/hoon/why-hoon">Hoon</a> in the near
+            future.
+          </p>
+          <p class="mt-2">
+            I have strong disdain for managed platforms such as Vercel and know
+            how to write React code despite disliking its performance.
+            Cloudflare is an exception because it is actually good.
+          </p>
+          <a href="/stack" class="internal inline-block mt-2"> &gt; Stack </a>
+          <div class="clear-both"></div>
+        </section>
+
+        <section>
+          <h1>Languages</h1>
+          <p>
+            I am a native speaker of English, with good understanding of
+            Portuguese and Esperanto.
+          </p>
+        </section>
+      </div>
+
+      <div
+        class="card pointer-events-none select-none h-128 inset-0 overflow-hidden flex items-center justify-center"
+      >
+        <div
+          id="ascii-container"
+          class="whitespace-pre leading-none text-xs"
+        ></div>
+      </div>
+      <footer class="card p-4 mb-8 w-full max-w-screen-lg mx-auto text-sm">
+        Copyright © 2026 arcmaximizer. Licensed under the terms of the
+        <a href="https://www.gnu.org/licenses/agpl-3.0.en.html"
+          >GNU Affero General Public License 3.0</a
+        >
+      </footer>
     </div>
-    
-    <div class="max-w-screen-lg border border-4 border-double gap-4 bg-orange-50 mx-auto mt-4">
-      <img src="whirlwind.jpg" alt="whirlwind" id="whirlwind"></img>
-    </div>
-    
-    <label class="text-center mx-auto block" for="whirlwind">this website is running on <a href="https://pages.cloudflare.com">cloudflare pages</a></label>
-    
-    <div class="max-w-screen-lg border border-4 border-double gap-4 bg-orange-50 mx-auto mt-4 p-4">
-      <h2 class="font-bold text-2xl">FACTOIDS</h2>
-      <p>exactly <span class="text-red-full font-bold">[1]</span> item in the following list is a lie.</p>
-      <ol class="list-disc list-inside mt-2">
-        <li>self-taught programmer since ~6 years old</li>
-        <li>has a cat named Waffles</li>
-        <li>interested in all things computer science</li>
-        <li>mildly dislikes centralized technologies</li>
-        <li>has barked at a dog before</li>
-        <li>enjoys mint chocolate chip ice cream</li>
-        <li>is canadian</li>
-      </ol>
-    </div>
-    
-    <div class="max-w-screen-lg border border-4 border-double gap-4 bg-orange-50 mx-auto mt-4 p-4 text-sm text-center">
-      Copyright &copy; 2026 arcmaximizer. Licensed under the terms of the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">GNU Affero General Public License 3.0</a>.
-    </div>
-    
+
     <script type="module" src="/src/main.ts" defer async></script>
   </body>
 </html>
